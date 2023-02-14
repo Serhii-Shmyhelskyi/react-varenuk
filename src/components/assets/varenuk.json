@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg",
+    "title": "Вереники з кропивою",
+    "price": 250
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://st4.depositphotos.com/4709981/28156/i/600/depositphotos_281564948-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники мяcні",
+    "price": 269
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://st2.depositphotos.com/2390973/11686/i/600/depositphotos_116869662-stock-photo-ukrainian-dumplings-vareniki-with-mashed.jpg",
+    "title": "Вереники вегетаріанські",
+    "price": 399
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://st4.depositphotos.com/4709981/27745/i/600/depositphotos_277450482-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники сирно-мясні",
+    "price": 279
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://st4.depositphotos.com/4709981/28010/i/600/depositphotos_280107452-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники з картоплею",
+    "price": 199
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://st4.depositphotos.com/4709981/28010/i/600/depositphotos_280107438-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники з капустою",
+    "price": 229
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://st4.depositphotos.com/4709981/28286/i/600/depositphotos_282860372-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники з сиром",
+    "price": 260
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://st4.depositphotos.com/4709981/27936/i/600/depositphotos_279360808-stock-photo-dumplings-on-a-plate-isolated.jpg",
+    "title": "Вереники з телятиною",
+    "price": 299
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg",
+    "title": "Вереники з шашликом",
+    "price": 279
+  }
+]
