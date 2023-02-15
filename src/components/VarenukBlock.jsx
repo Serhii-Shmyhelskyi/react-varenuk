@@ -19,8 +19,8 @@ export default function VarenukBlock({ title, price, imageUrl }) {
       <h4 className="varenuk-block__title">{title}</h4>
       <div className="varenuk-block__selector">
         <ul>
-          <li className="active">тонке</li>
-          <li>традиційне</li>
+          <li className="active">ніжні</li>
+          <li>гострі</li>
         </ul>
         <ul>
           <li className="active">14 шт.</li>

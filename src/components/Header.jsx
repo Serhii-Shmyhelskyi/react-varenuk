@@ -1,5 +1,5 @@
 import React from "react";
-import LogoPng from "../components/assets/img/varenukLogo.png";
+import LogoPng from "../assets/img/varenukLogo.png";
 
 export default function Header() {
   return (

@@ -7,7 +7,7 @@ import Sort from "./components/Sort";
 import "./scss/app.scss";
 import VarenukBlock from "./components/VarenukBlock";
 
-import items from "./components/assets/varenuk.json";
+import items from "./assets/varenuk.json";
 
 function App() {
   return (
