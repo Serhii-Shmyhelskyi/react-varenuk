@@ -5,7 +5,7 @@
     "title": "Вереники з кропивою",
     "price": 250,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 24, 34],
     "category": 0,
     "rating": 4
   },
@@ -14,8 +14,8 @@
     "imageUrl": "https://st4.depositphotos.com/4709981/28156/i/600/depositphotos_281564948-stock-photo-dumplings-on-a-plate-isolated.jpg",
     "title": "Вереники мяcні",
     "price": 269,
-    "types": [0, 1],
-    "size": [26, 30, 40],
+    "types": [0],
+    "sizes": [14, 34],
     "category": 1,
     "rating": 6
   },
@@ -25,7 +25,7 @@
     "title": "Вереники вегетаріанські",
     "price": 399,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 24, 34],
     "category": 1,
     "rating": 4
   },
@@ -34,8 +34,8 @@
     "imageUrl": "https://st4.depositphotos.com/4709981/27745/i/600/depositphotos_277450482-stock-photo-dumplings-on-a-plate-isolated.jpg",
     "title": "Вереники сирно-мясні",
     "price": 279,
-    "types": [0, 1],
-    "size": [26, 30, 40],
+    "types": [0],
+    "sizes": [14, 34],
     "category": 2,
     "rating": 2
   },
@@ -45,7 +45,7 @@
     "title": "Вереники з картоплею",
     "price": 199,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 24, 34],
     "category": 3,
     "rating": 8
   },
@@ -54,8 +54,8 @@
     "imageUrl": "https://st4.depositphotos.com/4709981/28010/i/600/depositphotos_280107438-stock-photo-dumplings-on-a-plate-isolated.jpg",
     "title": "Вереники з капустою",
     "price": 229,
-    "types": [0, 1],
-    "size": [26, 30, 40],
+    "types": [1],
+    "sizes": [14, 24, 34],
     "category": 2,
     "rating": 2
   },
@@ -65,7 +65,7 @@
     "title": "Вереники з сиром",
     "price": 260,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 34],
     "category": 1,
     "rating": 9
   },
@@ -75,7 +75,7 @@
     "title": "Вереники з телятиною",
     "price": 299,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 24, 34],
     "category": 4,
     "rating": 10
   },
@@ -85,7 +85,7 @@
     "title": "Вереники з шашликом",
     "price": 279,
     "types": [0, 1],
-    "size": [26, 30, 40],
+    "sizes": [14, 24, 34],
     "category": 5,
     "rating": 10
   }

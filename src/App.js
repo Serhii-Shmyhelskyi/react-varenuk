@@ -23,12 +23,7 @@ function App() {
           <h2 className="content__title">Всі вареники</h2>
           <div className="content__items">
             {items.map((obj, index) => (
-              <VarenukBlock
-                key={index}
-                title={obj.title}
-                imageUrl={obj.imageUrl}
-                price={obj.price}
-              />
+              <VarenukBlock key={index} {...obj} />
             ))}
           </div>
         </div>

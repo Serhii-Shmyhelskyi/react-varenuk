@@ -1,11 +1,9 @@
 import React from "react";
 
-export default function VarenukBlock({ title, price, imageUrl }) {
-  const [varenukCount, setVarenukCount] = React.useState(0);
-
-  const onClickAddButton = () => {
-    return setVarenukCount(varenukCount + 1);
-  };
+export default function VarenukBlock({ title, price, imageUrl, sizes, types }) {
+  const [activeType, setActiveType] = React.useState(0);
+  const [activeSize, setActiveSize] = React.useState(0);
+  const typeName = ["ніжні", "гострі"];
 
   return (
     <div className="varenuk-block">
@@ -19,20 +17,27 @@ export default function VarenukBlock({ title, price, imageUrl }) {
       <h4 className="varenuk-block__title">{title}</h4>
       <div className="varenuk-block__selector">
         <ul>
-          <li className="active">ніжні</li>
-          <li>гострі</li>
+          {types.map((typeId, i) => (
+            <li
+              onClick={() => setActiveType(i)}
+              className={activeType === i ? "active" : ""}>
+              {typeName[typeId]}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className="active">14 шт.</li>
-          <li>24 шт.</li>
-          <li>34 шт.</li>
+          {sizes.map((size, i) => (
+            <li
+              onClick={() => setActiveSize(i)}
+              className={activeSize === i ? "active" : ""}>
+              {size} шт.
+            </li>
+          ))}
         </ul>
       </div>
       <div className="varenuk-block__bottom">
         <div className="varenuk-block__price">від {price} ₴</div>
-        <div
-          onClick={onClickAddButton}
-          className="button button--outline button--add">
+        <div className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -45,7 +50,7 @@ export default function VarenukBlock({ title, price, imageUrl }) {
             />
           </svg>
           <span>Добавити</span>
-          <i>{varenukCount}</i>
+          <i>0</i>
         </div>
       </div>
     </div>
