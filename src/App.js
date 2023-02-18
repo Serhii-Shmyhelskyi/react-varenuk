@@ -17,13 +17,13 @@ function App() {
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <Categories />
+            {/* <Categories /> */}
             <Sort />
           </div>
           <h2 className="content__title">Всі вареники</h2>
           <div className="content__items">
-            {items.map((obj, index) => (
-              <VarenukBlock key={index} {...obj} />
+            {items.map((obj) => (
+              <VarenukBlock key={obj.id} {...obj} />
             ))}
           </div>
         </div>
