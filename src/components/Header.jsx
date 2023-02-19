@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LogoPng from "../assets/img/varenukLogo.png";
 
 export default function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <img width="60" src={LogoPng} alt="varenuk logo" />
-          <div>
-            <h1>React varenuk</h1>
-            <p>самі смачні вареники</p>
+        <Link to="/">
+          <div className="header__logo">
+            <img width="60" src={LogoPng} alt="varenuk logo" />
+            <div>
+              <h1>React varenuk</h1>
+              <p>самі смачні вареники</p>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Link to="cart" className="button button--cart">
             <span>320 ₴</span>
             <div className="button__delimiter"></div>
             <svg
@@ -45,7 +48,7 @@ export default function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
