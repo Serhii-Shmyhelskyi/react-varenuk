@@ -5,8 +5,11 @@ import Sort from "../components/Sort";
 import VarenukBlock from "../components/VarenukBlock";
 import Pagination from "../components/Pagination";
 import { Skeleton } from "../components/VarenukBlock/Skeleton.jsx";
+import { SearchContext } from "../App";
 
-export default function Home({ searchValue }) {
+export default function Home() {
+  const { searchValue } = React.useContext(SearchContext);
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);

@@ -84,7 +84,7 @@ const Cart = () => {
             <div className="cart__item-img">
               <img
                 className="varenuk-block__image"
-                src="https://dodoVarenuk-a.akamaihd.net/static/Img/Products/Varenuk/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src="https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg"
                 alt="Varenuk"
               />
             </div>
@@ -156,7 +156,7 @@ const Cart = () => {
             <div className="cart__item-img">
               <img
                 className="varenuk-block__image"
-                src="https://dodoVarenuk-a.akamaihd.net/static/Img/Products/Varenuk/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src="https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg"
                 alt="Varenuk"
               />
             </div>
@@ -228,7 +228,7 @@ const Cart = () => {
             <div className="cart__item-img">
               <img
                 className="varenuk-block__image"
-                src="https://dodoVarenuk-a.akamaihd.net/static/Img/Products/Varenuk/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src="https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg"
                 alt="Varenuk"
               />
             </div>
@@ -300,7 +300,7 @@ const Cart = () => {
             <div className="cart__item-img">
               <img
                 className="varenuk-block__image"
-                src="https://dodoVarenuk-a.akamaihd.net/static/Img/Products/Varenuk/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src="https://st2.depositphotos.com/1022597/5430/i/600/depositphotos_54308177-stock-photo-pasta-food.jpg"
                 alt="Varenuk"
               />
             </div>
