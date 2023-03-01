@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { setCategoryId, setSort } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import VarenukBlock from "../components/VarenukBlock";
@@ -8,21 +10,28 @@ import { Skeleton } from "../components/VarenukBlock/Skeleton.jsx";
 import { SearchContext } from "../App";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const sort = useSelector((state) => state.filter.sort);
+
   const { searchValue } = React.useContext(SearchContext);
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [sortType, setSortType] = React.useState({
-    name: "популярності",
-    sortProperty: "rating",
-  });
 
-  const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
-  const sortBy = sortType.sortProperty.replace("-", "");
+  const order = sort.sortProperty.includes("-") ? "asc" : "desc";
+  const sortBy = sort.sortProperty.replace("-", "");
   const category = categoryId > 0 ? `category${categoryId}` : "";
   const search = searchValue ? `&search=${searchValue}` : "";
+
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
+
+  const onChangeSort = (pbj) => {
+    dispatch(setSort(pbj));
+  };
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -35,7 +44,7 @@ export default function Home() {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sort, searchValue, currentPage]);
 
   const varenuks = items.map((obj) => <VarenukBlock key={obj.id} {...obj} />);
 
@@ -44,11 +53,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          value={categoryId}
-          onChangeCategory={(i) => setCategoryId(i)}
-        />
-        <Sort value={sortType} onChangeSort={(obj) => setSortType(obj)} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+        <Sort value={sort} onChangeSort={onChangeSort} />
       </div>
       <h2 className="content__title">Всі вареники</h2>
       <div className="content__items">{isLoading ? skeletons : varenuks}</div>
