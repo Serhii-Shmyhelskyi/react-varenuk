@@ -2,7 +2,11 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
+import {
+  setCategoryId,
+  setSort,
+  setCurrentPage,
+} from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import VarenukBlock from "../components/VarenukBlock";
@@ -12,7 +16,6 @@ import { SearchContext } from "../App";
 
 export default function Home() {
   const dispatch = useDispatch();
-
   const { categoryId, sort, currentPage } = useSelector(
     (state) => state.filter
   );
@@ -33,6 +36,10 @@ export default function Home() {
 
   const onChangePage = (page) => {
     dispatch(setCurrentPage(page));
+  };
+
+  const onChangeSort = (obj) => {
+    dispatch(setSort(obj));
   };
 
   React.useEffect(() => {
@@ -56,7 +63,7 @@ export default function Home() {
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+        <Sort sort={sort} onChangeSort={onChangeSort} />
       </div>
       <h2 className="content__title">Всі вареники</h2>
       <div className="content__items">{isLoading ? skeletons : varenuks}</div>
