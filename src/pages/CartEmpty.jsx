@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import LogoCart from "../assets/img/empty-cart.png";
 
-const Cart = () => {
+const CartEmpty = () => {
   return (
     <div>
       <div className="content">
@@ -28,4 +28,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartEmpty;
