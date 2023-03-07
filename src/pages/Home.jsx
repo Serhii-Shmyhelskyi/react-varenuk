@@ -17,6 +17,7 @@ import VarenukBlock from "../components/VarenukBlock";
 import Pagination from "../components/Pagination";
 import { Skeleton } from "../components/VarenukBlock/Skeleton.jsx";
 import { SearchContext } from "../App";
+import { setItems } from "../redux/slices/varenukSlice";
 
 function Home() {
   const navigate = useNavigate();
@@ -28,8 +29,9 @@ function Home() {
     (state) => state.filter
   );
 
+  const items = useSelector((state) => state.varenuk.items);
+
   const { searchValue } = React.useContext(SearchContext);
-  const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const onChangeCategory = React.useCallback((idx) => {
@@ -44,7 +46,7 @@ function Home() {
     dispatch(setSort(obj));
   };
 
-  const fetchVarenuks = () => {
+  const fetchVarenuks = async () => {
     setIsLoading(true);
 
     const order = sort.sortProperty.includes("-") ? "asc" : "desc";
@@ -52,14 +54,18 @@ function Home() {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    axios
-      .get(
+    try {
+      const { data } = await axios.get(
         `https://63ebc7d7be929df00ca23593.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
-      )
-      .then((res) => {
-        setItems(res.data);
-        setIsLoading(false);
-      });
+      );
+      dispatch(setItems(data));
+      setIsLoading(false);
+    } catch (error) {
+      console.log("ERROR", error);
+      alert("Помилка при отриманні вареників");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   React.useEffect(() => {
@@ -72,6 +78,7 @@ function Home() {
 
       navigate(`?${queryString}`);
     }
+    fetchVarenuks();
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, currentPage]);
 
