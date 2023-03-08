@@ -1,6 +1,5 @@
 import React from "react";
 import qs from "qs";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ import VarenukBlock from "../components/VarenukBlock";
 import Pagination from "../components/Pagination";
 import { Skeleton } from "../components/VarenukBlock/Skeleton.jsx";
 import { SearchContext } from "../App";
-import { setItems } from "../redux/slices/varenukSlice";
+import { fetchVarenuks } from "../redux/slices/varenukSlice";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,10 +28,9 @@ function Home() {
     (state) => state.filter
   );
 
-  const items = useSelector((state) => state.varenuk.items);
+  const { items, status } = useSelector((state) => state.varenuk);
 
   const { searchValue } = React.useContext(SearchContext);
-  const [isLoading, setIsLoading] = React.useState(true);
 
   const onChangeCategory = React.useCallback((idx) => {
     dispatch(setCategoryId(idx));
@@ -46,26 +44,21 @@ function Home() {
     dispatch(setSort(obj));
   };
 
-  const fetchVarenuks = async () => {
-    setIsLoading(true);
-
+  const getVarenuks = async () => {
     const order = sort.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sort.sortProperty.replace("-", "");
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    try {
-      const { data } = await axios.get(
-        `https://63ebc7d7be929df00ca23593.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
-      );
-      dispatch(setItems(data));
-      setIsLoading(false);
-    } catch (error) {
-      console.log("ERROR", error);
-      alert("Помилка при отриманні вареників");
-    } finally {
-      setIsLoading(false);
-    }
+    dispatch(
+      fetchVarenuks({
+        order,
+        sortBy,
+        category,
+        search,
+        currentPage,
+      })
+    );
   };
 
   React.useEffect(() => {
@@ -78,7 +71,7 @@ function Home() {
 
       navigate(`?${queryString}`);
     }
-    fetchVarenuks();
+    getVarenuks();
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, currentPage]);
 
@@ -104,7 +97,7 @@ function Home() {
     window.scrollTo(0, 0);
 
     if (!isSearch.current) {
-      fetchVarenuks();
+      getVarenuks();
     }
     isSearch.current = false;
   }, [categoryId, sort.sortPropert, searchValue, currentPage]);
@@ -119,7 +112,18 @@ function Home() {
         <Sort sort={sort} onChangeSort={onChangeSort} />
       </div>
       <h2 className="content__title">Всі вареники</h2>
-      <div className="content__items">{isLoading ? skeletons : varenuks}</div>
+      {status == "error" ? (
+        <div className="content__error-info">
+          <h2>Виникла помилка 😕</h2>
+          <p>Нажаль не вдалося отримати вариники</p>
+          <p>Спробуйте повторити пізніше</p>
+        </div>
+      ) : (
+        <div className="content__items">
+          {status == "loading" ? skeletons : varenuks}
+        </div>
+      )}
+
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
