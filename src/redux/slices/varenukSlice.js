@@ -8,6 +8,7 @@ export const fetchVarenuks = createAsyncThunk(
     const { data } = await axios.get(
       `https://63ebc7d7be929df00ca23593.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
     );
+
     return data;
   }
 );
@@ -40,6 +41,8 @@ const varenukSlice = createSlice({
     },
   },
 });
+
+export const selectVarenuk = (state) => state.varenuk;
 
 export const { setItems } = varenukSlice.actions;
 

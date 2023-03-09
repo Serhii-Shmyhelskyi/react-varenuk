@@ -8,6 +8,7 @@ import {
   setSort,
   setCurrentPage,
   setFilters,
+  selectFilter,
 } from "../redux/slices/filterSlice";
 
 import Categories from "../components/Categories";
@@ -15,8 +16,8 @@ import Sort, { sortList } from "../components/Sort";
 import VarenukBlock from "../components/VarenukBlock";
 import Pagination from "../components/Pagination";
 import { Skeleton } from "../components/VarenukBlock/Skeleton.jsx";
-import { SearchContext } from "../App";
-import { fetchVarenuks } from "../redux/slices/varenukSlice";
+
+import { fetchVarenuks, selectVarenuk } from "../redux/slices/varenukSlice";
 
 function Home() {
   const navigate = useNavigate();
@@ -24,13 +25,9 @@ function Home() {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
 
-  const { categoryId, sort, currentPage } = useSelector(
-    (state) => state.filter
-  );
-
-  const { items, status } = useSelector((state) => state.varenuk);
-
-  const { searchValue } = React.useContext(SearchContext);
+  const { categoryId, sort, currentPage, searchValue } =
+    useSelector(selectFilter);
+  const { items, status } = useSelector(selectVarenuk);
 
   const onChangeCategory = React.useCallback((idx) => {
     dispatch(setCategoryId(idx));
