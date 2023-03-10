@@ -385,6 +385,17 @@ body {
   }
 }
 
+.fullVarenuk {
+  text-align: center;
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 645px) {
   .content {
     padding: 20px 0;

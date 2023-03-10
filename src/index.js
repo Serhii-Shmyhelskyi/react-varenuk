@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import CartEmpty from "./pages/CartEmpty";
 
 import store from "./redux/store";
+import FullVarenuk from "./pages/FullVarenuk";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +22,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "cart",
+        path: "/cart",
         element: <Cart />,
       },
       {
-        path: "cartEmpty",
+        path: "/cartEmpty",
         element: <CartEmpty />,
+      },
+      {
+        path: "/varenuk/:id",
+        element: <FullVarenuk />,
       },
       {
         path: "*",

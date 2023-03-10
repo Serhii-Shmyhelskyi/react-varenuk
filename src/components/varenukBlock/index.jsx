@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { addItem, selectCartItemById } from "../../redux/slices/cartSlice";
 
@@ -36,13 +37,15 @@ export default function VarenukBlock({
   return (
     <div className="varenuk-block-wrapper">
       <div className="varenuk-block">
-        <img
-          width={260}
-          height={260}
-          className="varenuk-block__image"
-          src={imageUrl}
-          alt="Varenuk"
-        />
+        <Link to={`/varenuk/${id}`}>
+          <img
+            width={260}
+            height={260}
+            className="varenuk-block__image"
+            src={imageUrl}
+            alt="Varenuk"
+          />
+        </Link>
         <h4 className="varenuk-block__title">{title}</h4>
         <div className="varenuk-block__selector">
           <ul>
