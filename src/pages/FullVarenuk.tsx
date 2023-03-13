@@ -2,8 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const FullVarenuk = () => {
-  const [varenuk, setVarenuk] = React.useState();
+const FullVarenuk: React.FC = () => {
+  const [varenuk, setVarenuk] = React.useState<{
+    imageUrl: string;
+    title: string;
+    price: string;
+  }>();
   const { id } = useParams();
   const navigate = useNavigate();
 
