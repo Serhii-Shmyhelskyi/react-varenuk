@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 
 import App from "./App";
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound.jsx";
+import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import CartEmpty from "./pages/CartEmpty";
 
-import store from "./redux/store";
+import { store } from "./redux/store";
 import FullVarenuk from "./pages/FullVarenuk";
 
 const router = createBrowserRouter([
