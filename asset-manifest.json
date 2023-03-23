@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-varenuk/static/css/main.6d2a0a8c.css",
+    "main.css": "/react-varenuk/static/css/main.202e2d67.css",
     "main.js": "/react-varenuk/static/js/main.faf8aa77.js",
     "static/media/empty-cart.png": "/react-varenuk/static/media/empty-cart.db905d1f4b063162f25b.png",
     "static/media/varenukLogo.png": "/react-varenuk/static/media/varenukLogo.3b88cc30fc284438a2d0.png",
     "index.html": "/react-varenuk/index.html",
-    "main.6d2a0a8c.css.map": "/react-varenuk/static/css/main.6d2a0a8c.css.map",
+    "main.202e2d67.css.map": "/react-varenuk/static/css/main.202e2d67.css.map",
     "main.faf8aa77.js.map": "/react-varenuk/static/js/main.faf8aa77.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d2a0a8c.css",
+    "static/css/main.202e2d67.css",
     "static/js/main.faf8aa77.js"
   ]
 }
