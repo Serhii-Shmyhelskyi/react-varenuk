@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 type CategoriesProps = {
   value: number;
@@ -14,7 +14,7 @@ const categories = [
   "Сирні",
 ];
 
-const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
+const Categories: FC<CategoriesProps> = ({ value, onChangeCategory }) => {
   return (
     <div className="categories">
       <ul>

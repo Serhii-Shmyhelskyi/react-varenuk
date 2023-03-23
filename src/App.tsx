@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 import "./scss/app.scss";
 
-function App() {
+const App = () => {
   return (
     <>
       <div className="wrapper">
@@ -15,6 +15,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;

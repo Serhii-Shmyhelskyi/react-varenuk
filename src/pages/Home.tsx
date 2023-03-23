@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useRef, useCallback, useEffect } from "react";
 import qs from "qs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -25,17 +25,17 @@ import {
 } from "../redux/slices/varenukSlice";
 import { useAppDispatch } from "../redux/store";
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isSearch = React.useRef(false);
-  const isMounted = React.useRef(false);
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
   const { items, status } = useSelector(selectVarenuk);
 
-  const onChangeCategory = React.useCallback((idx: number) => {
+  const onChangeCategory = useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
   }, []);
 
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isMounted.current) {
       const queryString = qs.stringify({
         sortProperty: sort.sortProperty,
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, currentPage]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(
         window.location.search.substring(1)
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
     }
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
 
     if (!isSearch.current) {
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
         <Sort sort={sort} onChangeSort={onChangeSort} />
       </div>
       <h2 className="content__title">Всі вареники</h2>
-      {status == "error" ? (
+      {status === "error" ? (
         <div className="content__error-info">
           <h2>Виникла помилка 😕</h2>
           <p>Нажаль не вдалося отримати вариники</p>
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div className="content__items">
-          {status == "loading" ? skeletons : varenuks}
+          {status === "loading" ? skeletons : varenuks}
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useRef, useState, useEffect } from "react";
 import { sortPropertyEnum, SortSlice } from "../redux/slices/filterSlice";
 
 type SortItem = {
@@ -24,16 +24,16 @@ type PopupClick = MouseEvent & {
   path: Node[];
 };
 
-const SortPopup: React.FC<SortProps> = ({ sort, onChangeSort }) => {
-  const [isVisible, setIsVisible] = React.useState(false);
-  const sortRef = React.useRef<HTMLDivElement>(null);
+const SortPopup: FC<SortProps> = ({ sort, onChangeSort }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const onClickListItem = (obj: SortItem) => {
     onChangeSort(obj);
     setIsVisible(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const _event = event as PopupClick;
       if (sortRef.current && !_event.path.includes(sortRef.current)) {

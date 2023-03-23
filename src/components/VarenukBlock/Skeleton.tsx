@@ -1,7 +1,7 @@
-import React from "react";
+import {FC} from "react";
 import ContentLoader from "react-content-loader";
 
-export const Skeleton: React.FC = () => (
+export const Skeleton: FC = () => (
   <div className="varenuk-block-wrapper">
     <ContentLoader
       className="varenuk-block"

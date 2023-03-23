@@ -1,9 +1,9 @@
-import React from "react";
+import { FC, useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const FullVarenuk: React.FC = () => {
-  const [varenuk, setVarenuk] = React.useState<{
+const FullVarenuk: FC = () => {
+  const [varenuk, setVarenuk] = useState<{
     imageUrl: string;
     title: string;
     price: string;
@@ -11,7 +11,7 @@ const FullVarenuk: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function ferchVarenuk() {
       try {
         const { data } = await axios.get(

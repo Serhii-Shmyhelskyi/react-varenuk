@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 import {
   minusItem,
@@ -17,7 +17,7 @@ type CartItemProps = {
   imageUrl: string;
 };
 
-const CartItemBlock: React.FC<CartItemProps> = ({
+const CartItemBlock: FC<CartItemProps> = ({
   id,
   title,
   type,

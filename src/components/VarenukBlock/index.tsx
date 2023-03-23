@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ type VarenukBlockProps = {
   types: number[];
 };
 
-const VarenukBlock: React.FC<VarenukBlockProps> = ({
+const VarenukBlock: FC<VarenukBlockProps> = ({
   id,
   title,
   price,
@@ -28,8 +28,8 @@ const VarenukBlock: React.FC<VarenukBlockProps> = ({
   types,
 }) => {
   const dispatch = useDispatch();
-  const [activeType, setActiveType] = React.useState(0);
-  const [activeSize, setActiveSize] = React.useState(0);
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
 
   const cartItem = useSelector(selectCartItemById(id));
 
