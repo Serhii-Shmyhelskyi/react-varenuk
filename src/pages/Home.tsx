@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         currentPage,
       });
 
-      navigate(`/?${queryString}`);
+      navigate(`?${queryString}`);
     }
     if (!window.location.search) {
       dispatch(fetchVarenuks({} as SearchVarenukParams));

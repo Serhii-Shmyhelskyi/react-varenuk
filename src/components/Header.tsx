@@ -19,7 +19,7 @@ export default function Header() {
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <Link to="/">
+          <Link to="">
             <img width="60" src={LogoPng} alt="varenuk logo" />
             <div>
               <h1>React varenuk</h1>
@@ -30,7 +30,7 @@ export default function Header() {
         <Search />
         <div className="header__cart">
           {location.pathname !== "/cart" && (
-            <Link to="/cart" className="button button--cart">
+            <Link to="cart" className="button button--cart">
               <span>{totalPrice} ₴</span>
               <div className="button__delimiter"></div>
               <svg

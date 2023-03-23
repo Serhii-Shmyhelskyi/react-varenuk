@@ -13,7 +13,7 @@ import FullVarenuk from "./pages/FullVarenuk";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "react-varenuk",
     element: <App />,
     children: [
       {
@@ -21,15 +21,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/cart",
+        path: "cart",
         element: <Cart />,
       },
       {
-        path: "/cartEmpty",
+        path: "cartEmpty",
         element: <CartEmpty />,
       },
       {
-        path: "/varenuk/:id",
+        path: "varenuk/:id",
         element: <FullVarenuk />,
       },
       {

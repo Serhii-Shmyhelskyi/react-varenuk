@@ -96,7 +96,7 @@ const Cart: React.FC = () => {
               />
             </svg>
 
-            <Link to={"/cartEmpty"}>
+            <Link to={"cartEmpty"}>
               <span onClick={onClickClear}>Очистити корзину</span>
             </Link>
           </div>
@@ -119,7 +119,7 @@ const Cart: React.FC = () => {
           </div>
           <div className="cart__bottom-buttons">
             <Link
-              to="/"
+              to=""
               className="button button--outline button--add go-back-btn">
               <svg
                 width="8"

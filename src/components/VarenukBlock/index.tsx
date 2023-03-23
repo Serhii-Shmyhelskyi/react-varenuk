@@ -51,7 +51,7 @@ const VarenukBlock: React.FC<VarenukBlockProps> = ({
   return (
     <div className="varenuk-block-wrapper">
       <div className="varenuk-block">
-        <Link to={`/varenuk/${id}`}>
+        <Link to={`varenuk/${id}`}>
           <img
             width={260}
             height={260}
