@@ -3,27 +3,18 @@ import qs from "qs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import {
-  setCategoryId,
-  setSort,
-  setCurrentPage,
-  setFilters,
-  selectFilter,
-  SortSlice,
-} from "../redux/slices/filterSlice";
-
 import Categories from "../components/Categories";
 import Sort, { sortList } from "../components/Sort";
 import VarenukBlock from "../components/VarenukBlock";
 import { Pagination } from "../components/Pagination";
 import { Skeleton } from "../components/VarenukBlock/Skeleton";
 
-import {
-  fetchVarenuks,
-  SearchVarenukParams,
-  selectVarenuk,
-} from "../redux/slices/varenukSlice";
 import { useAppDispatch } from "../redux/store";
+import { selectFilter } from "../redux/filter/selectors";
+import { setCategoryId, setCurrentPage, setSort } from "../redux/filter/slice";
+import { SortSlice } from "../redux/filter/types";
+import { selectVarenuk } from "../redux/varenuk/selectors";
+import { fetchVarenuks } from "../redux/varenuk/asyncActions";
 
 const Home: FC = () => {
   const navigate = useNavigate();
@@ -65,54 +56,52 @@ const Home: FC = () => {
   };
 
   useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortProperty: sort.sortProperty,
-        categoryId,
-        currentPage,
-      });
+    // if (isMounted.current) {
+    //   const queryString = qs.stringify({
+    //     sortProperty: sort.sortProperty,
+    //     categoryId,
+    //     currentPage,
+    //   });
 
-      navigate(`?${queryString}`);
-    }
-    if (!window.location.search) {
-      dispatch(fetchVarenuks({} as SearchVarenukParams));
-    }
+    //   navigate(`?${queryString}`);
+    // }
+    // if (!window.location.search) {
+    //   dispatch(fetchVarenuks({} as SearchVarenukParams));
+    // }
+    // getVarenuks();
+    // isMounted.current = true;
+    // }, [categoryId, sort.sortProperty, currentPage]);
+
+    // useEffect(() => {
+    //   if (window.location.search) {
+    //     const params = qs.parse(
+    //       window.location.search.substring(1)
+    //     ) as unknown as SearchVarenukParams;
+
+    //     const sort = sortList.find((obj) => obj.sortProperty == params.sortBy);
+
+    //     dispatch(
+    //       setFilters({
+    //         searchValue: params.search,
+    //         categoryId: Number(params.category),
+    //         currentPage: Number(params.currentPage),
+    //         sort: sort || sortList[0],
+    //       })
+    //     );
+    //     isSearch.current = true;
+    //   }
+    // }, []);
+
+    // useEffect(() => {
+    //   window.scrollTo(0, 0);
+
+    //   if (!isSearch.current) {
     getVarenuks();
-    isMounted.current = true;
-  }, [categoryId, sort.sortProperty, currentPage]);
-
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(
-        window.location.search.substring(1)
-      ) as unknown as SearchVarenukParams;
-
-      const sort = sortList.find((obj) => obj.sortProperty == params.sortBy);
-
-      dispatch(
-        setFilters({
-          searchValue: params.search,
-          categoryId: Number(params.category),
-          currentPage: Number(params.currentPage),
-          sort: sort || sortList[0],
-        })
-      );
-      isSearch.current = true;
-    }
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    if (!isSearch.current) {
-      getVarenuks();
-    }
-    isSearch.current = false;
+    // }
+    // isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const varenuks = items.map((obj: any) => (
-    <VarenukBlock key={obj.id} {...obj} />
-  ));
+  const varenuks = items.map((obj) => <VarenukBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(8)].map((_, i) => <Skeleton key={i} />);
 
   return (

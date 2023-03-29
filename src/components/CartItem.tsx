@@ -1,11 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import {
-  minusItem,
-  addItem,
-  removeItem,
-  CartItem,
-} from "../redux/slices/cartSlice";
+import { addItem, minusItem, removeItem } from "../redux/cart/slice";
+import { CartItem } from "../redux/cart/types";
 
 type CartItemProps = {
   id: string;
@@ -60,8 +56,11 @@ const CartItemBlock: FC<CartItemProps> = ({
         </div>
         <div className="cart__item-count">
           <button
+            disabled={count === 1}
             onClick={onClickMinus}
-            className="button button--outline button--circle cart__item-count-minus">
+            className={
+              "button button--outline button--circle cart__item-count-minus"
+            }>
             <svg
               width="10"
               height="10"

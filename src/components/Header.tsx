@@ -1,34 +1,45 @@
+import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Search from "./Search";
 import LogoPng from "../assets/img/varenukLogo.png";
-import { CartItem, selectCart } from "../redux/slices/cartSlice";
+import { selectCart } from "../redux/cart/selectors";
+import { CartItem } from "../redux/cart/types";
 
 export default function Header() {
   const { items, totalPrice } = useSelector(selectCart);
   const location = useLocation();
+  const isMounted = useRef(false);
 
   const totalCount = items.reduce(
     (sum: number, item: CartItem) => sum + item.count,
     0
   );
 
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem("cart", json);
+    }
+    isMounted.current = true;
+  }, [items]);
+
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <Link to="">
+        <Link to="">
+          <div className="header__logo">
             <img width="60" src={LogoPng} alt="varenuk logo" />
             <div>
               <h1>React varenuk</h1>
               <p>самі смачні вареники</p>
             </div>
-          </Link>
-        </div>
-        <Search />
+          </div>
+        </Link>
+        {location.pathname !== "/react-varenuk/cart" && <Search />}
         <div className="header__cart">
-          {location.pathname !== "/cart" && (
+          {location.pathname !== "/react-varenuk/cart" && (
             <Link to="cart" className="button button--cart">
               <span>{totalPrice} ₴</span>
               <div className="button__delimiter"></div>

@@ -125,7 +125,7 @@ body {
       margin: 20px auto;
     }
     @media (max-width: 700px) {
-      max-width: 400px;
+      max-width: 350px;
       margin: 10px auto;
     }
     .content__title {
@@ -242,6 +242,23 @@ body {
         svg {
           path:first-of-type {
             display: none;
+          }
+        }
+
+        &:disabled {
+          opacity: 0.4;
+          border-color: rgb(88, 86, 86);
+          &:active {
+            transform: none;
+          }
+          &:hover {
+            background-color: transparent;
+            svg path {
+              fill: rgb(88, 86, 86);
+            }
+          }
+          svg path {
+            fill: rgb(88, 86, 86);
           }
         }
       }

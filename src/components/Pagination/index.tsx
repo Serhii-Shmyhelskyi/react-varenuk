@@ -11,15 +11,18 @@ type PaginationProps = {
 export const Pagination: FC<PaginationProps> = ({
   currentPage,
   onChangePage,
-}) => (
-  <ReactPaginate
-    className={styles.root}
-    breakLabel="..."
-    nextLabel=">"
-    previousLabel="<"
-    onPageChange={(event) => onChangePage(event.selected + 1)}
-    pageRangeDisplayed={4}
-    pageCount={2}
-    forcePage={currentPage - 1}
-  />
-);
+}) => {
+  
+  return (
+    <ReactPaginate
+      className={styles.root}
+      breakLabel="..."
+      nextLabel=">"
+      previousLabel="<"
+      onPageChange={(event) => onChangePage(event.selected + 1)}
+      pageRangeDisplayed={4}
+      pageCount={2}
+      forcePage={currentPage - 1}
+    />
+  );
+};

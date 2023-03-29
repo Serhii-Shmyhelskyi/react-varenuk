@@ -1,5 +1,5 @@
-import { FC, useRef, useState, useEffect } from "react";
-import { sortPropertyEnum, SortSlice } from "../redux/slices/filterSlice";
+import { FC, useRef, useState, useEffect, memo } from "react";
+import { sortPropertyEnum, SortSlice } from "../redux/filter/types";
 
 type SortItem = {
   name: string;
@@ -17,14 +17,14 @@ export const sortList: SortItem[] = [
 
 type SortProps = {
   sort: SortSlice;
-  onChangeSort: any;
+  onChangeSort: (obj: SortSlice) => void;
 };
 
 type PopupClick = MouseEvent & {
   path: Node[];
 };
 
-const SortPopup: FC<SortProps> = ({ sort, onChangeSort }) => {
+const SortPopup: FC<SortProps> = memo(({ sort, onChangeSort }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -80,6 +80,6 @@ const SortPopup: FC<SortProps> = ({ sort, onChangeSort }) => {
       ) : null}
     </div>
   );
-};
+});
 
 export default SortPopup;
