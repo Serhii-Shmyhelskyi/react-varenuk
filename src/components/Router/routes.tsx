@@ -1,11 +1,17 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "../../App";
-import Cart from "../../pages/Cart";
-import CartEmpty from "../../pages/CartEmpty";
-import FullVarenuk from "../../pages/FullVarenuk";
+
+// import CartEmpty from "../../pages/CartEmpty";
+// import FullVarenuk from "../../pages/FullVarenuk";
 import Home from "../../pages/Home";
-import NotFound from "../NotFoundBlock";
+// import NotFound from "../NotFoundBlock";
+
+const Cart = lazy(() => import("../../pages/Cart"));
+const FullVarenuk = lazy(() => import("../../pages/FullVarenuk"));
+const NotFound = lazy(() => import("../NotFoundBlock"));
+const CartEmpty = lazy(() => import("../../pages/CartEmpty"));
 
 export const router = createBrowserRouter([
   {
@@ -18,19 +24,35 @@ export const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<div>Йде завантаження корзини</div>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "cartEmpty",
-        element: <CartEmpty />,
+        element: (
+          <Suspense fallback={<div>Йде завантаження корзини</div>}>
+            <CartEmpty />
+          </Suspense>
+        ),
       },
       {
         path: "varenuk/:id",
-        element: <FullVarenuk />,
+        element: (
+          <Suspense fallback={<div>Йде завантаження вареника</div>}>
+            <FullVarenuk />
+          </Suspense>
+        ),
       },
       {
         path: "*",
-        element: <NotFound />,
+        element: (
+          <Suspense fallback={<div>Йде завантаження помилки</div>}>
+            <NotFound />
+          </Suspense>
+        ),
       },
     ],
   },
