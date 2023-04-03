@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/react-varenuk/static/css/main.202e2d67.css",
-    "main.js": "/react-varenuk/static/js/main.faf8aa77.js",
+    "main.css": "/react-varenuk/static/css/main.22d339a2.css",
+    "main.js": "/react-varenuk/static/js/main.f96de34b.js",
+    "Cart.js": "/react-varenuk/static/js/Cart.b71986b6.chunk.js",
+    "FullVarenuk.js": "/react-varenuk/static/js/FullVarenuk.952ab325.chunk.js",
     "static/media/empty-cart.png": "/react-varenuk/static/media/empty-cart.db905d1f4b063162f25b.png",
     "static/media/varenukLogo.png": "/react-varenuk/static/media/varenukLogo.3b88cc30fc284438a2d0.png",
     "index.html": "/react-varenuk/index.html",
-    "main.202e2d67.css.map": "/react-varenuk/static/css/main.202e2d67.css.map",
-    "main.faf8aa77.js.map": "/react-varenuk/static/js/main.faf8aa77.js.map"
+    "main.22d339a2.css.map": "/react-varenuk/static/css/main.22d339a2.css.map",
+    "main.f96de34b.js.map": "/react-varenuk/static/js/main.f96de34b.js.map",
+    "Cart.b71986b6.chunk.js.map": "/react-varenuk/static/js/Cart.b71986b6.chunk.js.map",
+    "FullVarenuk.952ab325.chunk.js.map": "/react-varenuk/static/js/FullVarenuk.952ab325.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.202e2d67.css",
-    "static/js/main.faf8aa77.js"
+    "static/css/main.22d339a2.css",
+    "static/js/main.f96de34b.js"
   ]
 }
