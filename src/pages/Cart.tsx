@@ -97,9 +97,7 @@ const Cart: FC = () => {
               />
             </svg>
 
-            <Link to="cartEmpty">
-              <span onClick={onClickClear}>Очистити корзину</span>
-            </Link>
+            <span onClick={onClickClear}>Очистити корзину</span>
           </div>
         </div>
         <div className="content__items">
@@ -119,29 +117,28 @@ const Cart: FC = () => {
             </span>
           </div>
           <div className="cart__bottom-buttons">
-            <Link
-              to=""
-              className="button button--outline button--add go-back-btn">
-              <svg
-                width="8"
-                height="14"
-                viewBox="0 0 8 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 13L1 6.93015L6.86175 1"
-                  stroke="#D3D3D3"
-                  strokeWidth="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-
-              <span>Повернутися назад</span>
+            <Link to="/react-varenuk">
+              <button className="button button--outline button--add go-back-btn">
+                <svg
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7 13L1 6.93015L6.86175 1"
+                    stroke="#D3D3D3"
+                    strokeWidth="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>Повернутися назад</span>
+              </button>
             </Link>
-            <div className="button pay-btn">
+            <button className="button pay-btn">
               <span>Оплатити зараз</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>
