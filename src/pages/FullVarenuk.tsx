@@ -36,7 +36,7 @@ const FullVarenuk: FC = () => {
       <img width={320} height={320} src={varenuk.imageUrl} alt="Varenuk" />
       <p>Смачні та дуже поживні. Склад. Поживна цінність.</p>
       <h4>ціна: {varenuk.price} грн.</h4>
-      <Link to={""}>
+      <Link to="">
         <button className="button">
           <span>Назад</span>
         </button>

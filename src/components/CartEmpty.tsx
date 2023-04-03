@@ -17,7 +17,7 @@ export const CartEmpty: FC = () => {
             Для того, щоб замовити вареники, перейдіть на головну сторінку.
           </p>
           <img src={LogoCart} alt="Empty cart" />
-          <Link to={""} className="button button--black">
+          <Link to="" className="button button--black">
             <span>Повернутися назад</span>
           </Link>
         </div>

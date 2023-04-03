@@ -97,7 +97,7 @@ const Cart: FC = () => {
               />
             </svg>
 
-            <Link to={"cartEmpty"}>
+            <Link to="cartEmpty">
               <span onClick={onClickClear}>Очистити корзину</span>
             </Link>
           </div>
