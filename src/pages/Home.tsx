@@ -1,13 +1,13 @@
-import { FC, useRef, useCallback, useEffect } from "react";
-import qs from "qs";
+import { FC, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
-import Categories from "../components/Categories";
-import Sort, { sortList } from "../components/Sort";
-import VarenukBlock from "../components/VarenukBlock";
-import { Pagination } from "../components/Pagination";
-import { Skeleton } from "../components/VarenukBlock/Skeleton";
+import {
+  Categories,
+  Sort,
+  VarenukBlock,
+  Pagination,
+  Skeleton,
+} from "../components";
 
 import { useAppDispatch } from "../redux/store";
 import { selectFilter } from "../redux/filter/selectors";
@@ -17,10 +17,7 @@ import { selectVarenuk } from "../redux/varenuk/selectors";
 import { fetchVarenuks } from "../redux/varenuk/asyncActions";
 
 const Home: FC = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const isSearch = useRef(false);
-  const isMounted = useRef(false);
 
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
@@ -56,49 +53,7 @@ const Home: FC = () => {
   };
 
   useEffect(() => {
-    // if (isMounted.current) {
-    //   const queryString = qs.stringify({
-    //     sortProperty: sort.sortProperty,
-    //     categoryId,
-    //     currentPage,
-    //   });
-
-    //   navigate(`?${queryString}`);
-    // }
-    // if (!window.location.search) {
-    //   dispatch(fetchVarenuks({} as SearchVarenukParams));
-    // }
-    // getVarenuks();
-    // isMounted.current = true;
-    // }, [categoryId, sort.sortProperty, currentPage]);
-
-    // useEffect(() => {
-    //   if (window.location.search) {
-    //     const params = qs.parse(
-    //       window.location.search.substring(1)
-    //     ) as unknown as SearchVarenukParams;
-
-    //     const sort = sortList.find((obj) => obj.sortProperty == params.sortBy);
-
-    //     dispatch(
-    //       setFilters({
-    //         searchValue: params.search,
-    //         categoryId: Number(params.category),
-    //         currentPage: Number(params.currentPage),
-    //         sort: sort || sortList[0],
-    //       })
-    //     );
-    //     isSearch.current = true;
-    //   }
-    // }, []);
-
-    // useEffect(() => {
-    //   window.scrollTo(0, 0);
-
-    //   if (!isSearch.current) {
     getVarenuks();
-    // }
-    // isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const varenuks = items.map((obj) => <VarenukBlock key={obj.id} {...obj} />);

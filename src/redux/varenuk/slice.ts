@@ -14,14 +14,17 @@ const varenukSlice = createSlice({
     builder.addCase(fetchVarenuks.pending, (state) => {
       state.status = Status.LOADING;
       state.items = [];
+      state.pagination = 0;
     });
     builder.addCase(fetchVarenuks.fulfilled, (state, action) => {
-      state.items = action.payload;
+      state.items = action.payload.data;
+      state.pagination = action.payload.pagination;
       state.status = Status.SUCCESS;
     });
     builder.addCase(fetchVarenuks.rejected, (state) => {
       state.status = Status.ERROR;
       state.items = [];
+      state.pagination = 0;
     });
   },
 });

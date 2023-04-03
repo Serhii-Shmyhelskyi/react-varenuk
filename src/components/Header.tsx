@@ -1,13 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import Search from "./Search";
+import { Search } from "../components";
 import LogoPng from "../assets/img/varenukLogo.png";
 import { selectCart } from "../redux/cart/selectors";
 import { CartItem } from "../redux/cart/types";
 
-export default function Header() {
+export const Header: FC = () => {
   const { items, totalPrice } = useSelector(selectCart);
   const location = useLocation();
   const isMounted = useRef(false);
@@ -78,4 +78,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
+};

@@ -16,7 +16,7 @@ type VarenukBlockProps = {
   types: number[];
 };
 
-const VarenukBlock: FC<VarenukBlockProps> = ({
+export const VarenukBlock: FC<VarenukBlockProps> = ({
   id,
   title,
   price,
@@ -104,5 +104,3 @@ const VarenukBlock: FC<VarenukBlockProps> = ({
     </div>
   );
 };
-
-export default VarenukBlock;

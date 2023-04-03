@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 
 import styles from "./notFoundBlock.module.scss";
 
-const NotFound: React.FC = () => {
+export const NotFoundBlock: FC = () => {
   return (
     <div className={styles.root}>
       <h1>
@@ -16,5 +16,3 @@ const NotFound: React.FC = () => {
     </div>
   );
 };
-
-export default NotFound;

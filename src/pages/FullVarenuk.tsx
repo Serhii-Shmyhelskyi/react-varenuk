@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const FullVarenuk: FC = () => {
   const [varenuk, setVarenuk] = useState<{
@@ -27,7 +27,7 @@ const FullVarenuk: FC = () => {
   }, []);
 
   if (!varenuk) {
-    return <>Завантаження...</>;
+    return <></>;
   }
 
   return (
@@ -36,6 +36,11 @@ const FullVarenuk: FC = () => {
       <img width={320} height={320} src={varenuk.imageUrl} alt="Varenuk" />
       <p>Смачні та дуже поживні. Склад. Поживна цінність.</p>
       <h4>ціна: {varenuk.price} грн.</h4>
+      <Link to={"react-varenuk"}>
+        <button className="button">
+          <span>Назад</span>
+        </button>
+      </Link>
     </div>
   );
 };

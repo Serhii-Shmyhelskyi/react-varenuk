@@ -24,7 +24,7 @@ type PopupClick = MouseEvent & {
   path: Node[];
 };
 
-const SortPopup: FC<SortProps> = memo(({ sort, onChangeSort }) => {
+export const Sort: FC<SortProps> = memo(({ sort, onChangeSort }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 
@@ -81,5 +81,3 @@ const SortPopup: FC<SortProps> = memo(({ sort, onChangeSort }) => {
     </div>
   );
 });
-
-export default SortPopup;
