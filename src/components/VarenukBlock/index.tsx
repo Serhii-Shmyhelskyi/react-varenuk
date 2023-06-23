@@ -96,7 +96,7 @@ export const VarenukBlock: FC<VarenukBlockProps> = ({
                 fill="white"
               />
             </svg>
-            <span>Добавити</span>
+            <span>Додати</span>
             {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>

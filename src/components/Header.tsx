@@ -33,7 +33,7 @@ export const Header: FC = () => {
             <img width="60" src={LogoPng} alt="varenuk logo" />
             <div>
               <h1>React varenuk</h1>
-              <p>самі смачні вареники</p>
+              <p>найсмачніші вареники</p>
             </div>
           </div>
         </Link>
