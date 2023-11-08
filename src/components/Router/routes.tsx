@@ -18,6 +18,7 @@ const NotFound = lazy(
 export const router = createBrowserRouter([
   {
     path: "react-varenuk",
+    // react-varenuk
     element: <App />,
     children: [
       {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "cart",
+        path: "/cart",
         element: (
           <Suspense fallback={<div>Йде завантаження корзини</div>}>
             <Cart />
@@ -33,11 +34,11 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "cartEmpty",
+        path: "/cartEmpty",
         element: <CartEmpty />,
       },
       {
-        path: "varenuk/:id",
+        path: "/varenuk/:id",
         element: (
           <Suspense fallback={<div>Йде завантаження вареників</div>}>
             <FullVarenuk />

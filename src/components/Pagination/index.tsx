@@ -29,7 +29,6 @@ export const Pagination: FC<PaginationProps> = ({
       onPageChange={(event) => onChangePage(event.selected + 1)}
       pageRangeDisplayed={4}
       pageCount={pageCount()}
-      forcePage={currentPage - 1}
     />
   );
 };

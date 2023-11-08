@@ -57,7 +57,7 @@ const Home: FC = () => {
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const varenuks = items.map((obj) => <VarenukBlock key={obj.id} {...obj} />);
-  const skeletons = [...new Array(8)].map((_, i) => <Skeleton key={i} />);
+  const skeletons = [...new Array(4)].map((_, i) => <Skeleton key={i} />);
 
   return (
     <div className="container">
