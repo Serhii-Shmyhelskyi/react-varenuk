@@ -33,7 +33,7 @@ const FullVarenuk: FC = () => {
   return (
     <div className="fullVarenuk container">
       <h2>{varenuk.title}</h2>
-      <img width={320} height={320} src={varenuk.imageUrl} alt="Varenuk" />
+      <img width={300} height={300} src={varenuk.imageUrl} alt="Varenuk" />
       <p>Смачні та дуже поживні. Склад. Поживна цінність.</p>
       <h4>ціна: {varenuk.price} грн.</h4>
       <Link to="/react-varenuk">

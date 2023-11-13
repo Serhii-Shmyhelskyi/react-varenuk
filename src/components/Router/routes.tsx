@@ -17,7 +17,7 @@ const NotFound = lazy(
 
 export const router = createBrowserRouter([
   {
-    path: "react-varenuk",
+    path: "/",
     // react-varenuk
     element: <App />,
     children: [
